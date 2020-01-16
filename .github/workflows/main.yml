@@ -15,7 +15,7 @@ jobs:
       with:
         java-version: 13
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew check
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
