@@ -28,8 +28,6 @@ jobs:
         path: ./build/libs/${{ env.JAR_NAME }}
     - name: Upload jar to release
       uses: AButler/upload-release-assets@v1.0
-      env:
-        JAR_PATH: $(find . -path '*/build/libs/*.jar')
       with:
-        files: '${{ env.JAR_NAME }}'
+        files: './build/libs/*.jar'
         repo-token: ${{ secrets.GITHUB_TOKEN }} 
