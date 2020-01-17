@@ -15,9 +15,7 @@ jobs:
       with:
         java-version: 11
     - name: Build with Gradle
-      run: ./gradlew build
-    #- name: Find jar file
-    #  run: path=$(find . -path '*/build/libs/*.jar'); path_to_jar=$(basename $path .jar); export JAR_NAME=$path_to_jar
+      run: ./gradlew check
     - name: Upload artifact
       uses: actions/upload-artifact@master
       env:
