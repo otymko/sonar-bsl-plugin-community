@@ -15,11 +15,11 @@ jobs:
       with:
         java-version: 11
     - name: Build with Gradle
-      run: ./gradlew check
+      run: ./gradlew build
     - name: Upload artifact
       uses: actions/upload-artifact@master
       env:
         JAR_PATH: $(find . -path '*/build/libs/*.jar') 
       with:
-        name: sonar-bsl-plugin-community.jar
+        name: sonar-bsl-plugin-community
         path: ./build/libs/${{ env.JAR_NAME }}
