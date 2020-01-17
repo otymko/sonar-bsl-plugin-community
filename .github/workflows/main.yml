@@ -24,4 +24,4 @@ jobs:
         JAR_PATH: $(find . -path '*/build/libs/*.jar') 
       with:
         name: sonar-bsl-plugin-community.jar
-        path: ./build/libs/${JAR_NAME}
+        path: ./build/libs/${{ env.JAR_NAME }}
