@@ -1,11 +1,14 @@
 name: Upload to release
 
-on: [push]
+on:
+  release:
+    types: [published, edited]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    name: Upload to release
 
     steps:
     - name: Checkout source
@@ -23,3 +26,10 @@ jobs:
       with:
         name: sonar-bsl-plugin-community
         path: ./build/libs/${{ env.JAR_NAME }}
+    - name: Upload jar to release
+      uses: AButler/upload-release-assets@v1.0
+      env:
+        JAR_PATH: $(find . -path '*/build/libs/*.jar')
+      with:
+        files: '${{ env.JAR_NAME }}'
+        repo-token: ${{ secrets.GITHUB_TOKEN }} 
